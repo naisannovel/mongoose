@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const studentSchema = new Schema({
   name: {
     type: String,
-    maxlength: 255,
+    maxlength: 255, // minlength maxlength work with String
     required: [true, "please insert student name"],
   },
   subject: {
@@ -30,7 +30,7 @@ const studentSchema = new Schema({
   subjects: [
     {
       name: { type: String, required: [true, "please insert subject name"] },
-      marks: { type: Number, min: 5, max: 100 },
+      marks: { type: Number, min: 5, max: 100 }, // min max work with Number
     },
   ],
 });
