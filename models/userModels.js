@@ -24,7 +24,7 @@ const userSchema = new Schema({
 });
 
 userSchema.methods.generateJWT = function () {
-  const token = jwt.sign(
+  const token = jwt.sign(     // this is synchronous method.
     {
       _id: this._id,
       email: this.email,

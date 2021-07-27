@@ -1,7 +1,7 @@
 const { Student } = require('../models/studentModels');
 
 module.exports.students = async (req,res)=>{
-    const result = await Student.find({}).sort({name:1});
+    const result = await Student.find({}).sort({name:1});   // .select({name:1,age:0}).limit(5)
     res.send(result);
 }
 

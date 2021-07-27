@@ -5,7 +5,7 @@ module.exports.login = async (req,res)=>{
   const user = await User.findOne({email:req.body.email});
   if(!user) return res.status(400).send('invalid email and password');
 
-  const validUser = await bcrypt.compare(req.body.password,user.password);
+  const validUser = await bcrypt.compare(req.body.password,user.password);  // return boolean value
   if(!validUser) return res.status(400).send('invalid email and password');
 
   const token = user.generateJWT();
