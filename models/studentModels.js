@@ -10,6 +10,7 @@ const studentSchema = new Schema({
     type: Array,
     of: String,
     validate: {
+      // this is custom validator
       validator: (value) => value.length > 0,
       message: "There must be at least 1 subject!",
     },
