@@ -34,6 +34,7 @@ const studentSchema = new Schema({
       marks: { type: Number, min: 5, max: 100 }, // min max work with Number
     },
   ],
+  userId: Schema.Types.ObjectId, // mongoDB id setting system
 });
 
 module.exports.Student = model("student", studentSchema);
