@@ -2,33 +2,37 @@ const { Schema, model } = require("mongoose");
 const joi = require("joi");
 const jwt = require("jsonwebtoken");
 
-const userSchema = new Schema({
-  email: {
-    type: String,
-    minlength: 5,
-    maxlength: 255,
-    required: true,
-    unique: true,
+const userSchema = new Schema(
+  {
+    email: {
+      type: String,
+      minlength: 5,
+      maxlength: 255,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      minlength: 5,
+      maxlength: 1024, // with hash password
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
   },
-  password: {
-    type: String,
-    minlength: 5,
-    maxlength: 1024, // with hash password
-    required: true,
-  },
-  role: {
-    type: String,
-    enum: ["user", "admin"],
-    default: "user",
-  },
-});
+  { timestamps: true } // user create and update date store automatically
+);
 
 userSchema.methods.generateJWT = function () {
-  const token = jwt.sign(     // this is synchronous method.
+  const token = jwt.sign(
+    // this is synchronous method.
     {
       _id: this._id,
       email: this.email,
-      role: this.role
+      role: this.role,
     },
     process.env.SECRET_KEY,
     { expiresIn: "1h" }

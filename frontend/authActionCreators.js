@@ -2,6 +2,7 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
+
 export const authSuccess = (token, userId) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
@@ -64,6 +65,11 @@ export const logout = () => {
     type: actionTypes.AUTH_LOGOUT,
   };
 };
+
+
+// authcheck ta amder always root component a call korte hobe tahole user login kina seta check korte parbe.
+// app.js or root ar j kono component a ata call korte hobe. then ata check korbe user ar token,expirationTime
+// sob thik ace kina jodi thik na thake tahole ata user k logout kore dibe
 
 export const authCheck = () => (dispatch) => {
   const token = localStorage.getItem("token");
