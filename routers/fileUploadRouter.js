@@ -14,6 +14,7 @@ router.route('/picture')
             // here we will save only file name in DB
             console.log(req.file);
             console.log(req.body);
+            // res.sendFile()      // for file send
         })
     })
 
