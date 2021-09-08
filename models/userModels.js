@@ -48,5 +48,5 @@ const validateUser = (user) => {
   return schema.validate(user);
 };
 
-module.exports.User = model("user", userSchema);
-module.exports.validate = validateUser;
+module.exports.User = model("User", userSchema);    // string User are DB collection.
+module.exports.validate = validateUser;             // convention singular number and capitalize

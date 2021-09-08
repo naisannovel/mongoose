@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const userRouter = require("./routers/userRouter");
 const studentRouter = require("./routers/studentRouter");
+const authGoogleRouter = require('./routers/authGoogleRouter');
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
+app.use("/auth/google",authGoogleRouter);
 app.use("/api", studentRouter);
 
 app.use((err, req, res, next) => {
