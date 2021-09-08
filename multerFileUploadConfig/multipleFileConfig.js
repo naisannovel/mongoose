@@ -52,3 +52,6 @@ module.exports = multer({
 // ])
 // only text data not file
 // .none()
+
+// frontend
+// in form tag we need to set => enctype="multipart/form-data"

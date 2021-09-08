@@ -3,7 +3,7 @@ const upload = require('../multerFileUploadConfig/singleFileConfig');
 const multer = require('multer');
 
 router.route('/picture')
-    .post(async (req, res) => {
+    .post(async (req, res) => {     // we can also pass upload as a middleware
         upload(req, res, function (err) {
             if (err instanceof multer.MulterError) {
                 res.send(err)
