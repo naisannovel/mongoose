@@ -8,7 +8,7 @@ passport.use(new GoogleStrategy({
     callbackURL: 'http://localhost:4001/auth/google/redirect'
 },     async (accessToken, refreshToken, profile, cb) => {
     // here we will save data in DB
-    let user = await GoogleAuthUser.findOne({
+    let user = await GoogleAuth.findOne({
         googleId: profile.id,
         email: profile._json.email
     })
@@ -20,7 +20,7 @@ passport.use(new GoogleStrategy({
         }
         cb(null,response)
     }else{
-        user = new GoogleAuthUser({
+        user = new GoogleAuth({
             googleId: profile.id,
             email: profile._json.email
         })
