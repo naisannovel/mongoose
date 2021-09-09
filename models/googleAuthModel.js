@@ -39,4 +39,4 @@ googleUserSchema.methods.generateJWT = function () {
     return token;
 }
 
-module.exports.GoogleAuthUser = model('User', googleUserSchema);
+module.exports.GoogleAuth = model('User', googleUserSchema);
