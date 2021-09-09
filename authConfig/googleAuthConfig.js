@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const {
     GoogleAuthUser
-} = require('../models/userAuthGoogle');
+} = require('../models/userAuthGoogleModel');
 const _ = require('lodash');
 
 passport.use(new GoogleStrategy({
