@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // google auth
-require('./googleAuth/authRoute')(app);
+require('./googleAuth/googleAuthRoute')(app);
 
 app.get("/", (req, res) => {
   res.send("hello world, i am root api url");
