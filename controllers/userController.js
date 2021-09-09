@@ -36,6 +36,6 @@ module.exports.signup = async (req, res) => {
   return res.status(201).send({
     message: "signup successfully",
     token,
-    data: _.pick(user, ["_id", "email"]), // although _id and email info have in token payload
+    data: _.pick(result, ["_id", "email"]), // although _id and email info have in token payload
   });
 };
