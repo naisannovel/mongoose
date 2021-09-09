@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
-app.use("/auth/google",authGoogleRouter);
 app.use("/user/profile", fileUploadRouter);
 app.use("/api", studentRouter);
 
